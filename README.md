@@ -1,1 +1,1 @@
-# OpenSkyAPI
+OOS2 Java projects repo
