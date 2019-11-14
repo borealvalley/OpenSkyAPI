@@ -45,7 +45,7 @@ public class AircraftFactory {
             callsign = aircraftInfo[1] != "null" ? aircraftInfo[1].trim() : null;
             originCountry = aircraftInfo[2] != "null" ? aircraftInfo[2].trim() : null;
             try {
-                timePos = new Date(Long.parseLong(aircraftInfo[3]));
+                timePos = new Date(Long.parseLong(aircraftInfo[3]) * 1000);
             } catch (NumberFormatException e) {}
             try {
                 longitude = Double.parseDouble(aircraftInfo[5]);
@@ -65,7 +65,6 @@ public class AircraftFactory {
         }
 
 		BasicAircraft msg = new BasicAircraft(icao, callsign, originCountry, timePos, new Coordinate(latitude, longitude), speed, track, altitude);
-
         return msg;
     }
 }

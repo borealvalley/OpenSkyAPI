@@ -1,7 +1,7 @@
 package messer;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 public class BasicAircraft {
@@ -15,14 +15,14 @@ public class BasicAircraft {
     private Double altitude;
 
     /**
-     * @param icao
-     * @param callsign
-     * @param originCountry
-     * @param posTime
-     * @param coordinate
-     * @param speed
-     * @param track
-     * @param altitude
+     * @param icao Unique ICAO 24-bit address of the transponder in hex string representation.
+     * @param callsign Callsign of the vehicle (8 chars).
+     * @param originCountry Country name inferred from the ICAO 24-bit address.
+     * @param posTime Timestamp for the last position update.
+     * @param coordinate WGS-84 coordinates in decimal degrees.
+     * @param speed Velocity over ground in m/s.
+     * @param track True track in decimal degrees clockwise from north (north = 0°).
+     * @param altitude Geometric altitude in meters.
      */
     public BasicAircraft(String icao, String callsign, String originCountry, Date posTime, Coordinate coordinate,
             Double speed, Double track, Double altitude) {
@@ -36,13 +36,24 @@ public class BasicAircraft {
         this.altitude = altitude;
     }
 
-    // TODO: Lab 4-6 return attribute names and values for table
+    /**
+     * @return ArrayList of all attributes names in BasicAircraft
+     */
     public static ArrayList<String> getAttributesNames() {
-        return null;
+        ArrayList<String> list = new ArrayList<String>();
+        list.addAll(Arrays.asList("icao", "callsign", "originCountry", "posTime", "coordinate", "speed", "track", "altitude"));
+        return list;
     }
 
+
+    /**
+     * @param ac The aircraft
+     * @return ArrayList of all attributes values in BasicAircraft
+     */
     public static ArrayList<Object> getAttributesValues(BasicAircraft ac) {
-        return null;
+        ArrayList<Object> list = new ArrayList<Object>();
+        list.addAll(Arrays.asList(ac.icao, ac.callsign, ac.originCountry, ac.posTime, ac.coordinate, ac.speed, ac.track, ac.altitude));
+        return list;
     }
 
     @Override
@@ -53,112 +64,112 @@ public class BasicAircraft {
     }
 
     /**
-     * @return the icao
+     * @return Unique ICAO 24-bit address of the transponder in hex string representation.
      */
     public String getIcao() {
         return icao;
     }
 
     /**
-     * @param icao the icao to set
+     * @param icao Unique ICAO 24-bit address of the transponder in hex string representation.
      */
     public void setIcao(String icao) {
         this.icao = icao;
     }
 
     /**
-     * @return the callsign
+     * @return Callsign of the vehicle (8 chars). Can be null if no callsign has been received.
      */
-    public String getcallsign() {
+    public String getCallsign() {
         return callsign;
     }
 
     /**
-     * @param callsign the callsign to set
+     * @param callsign Callsign of the vehicle (8 chars).
      */
-    public void setcallsign(String callsign) {
+    public void setCallsign(String callsign) {
         this.callsign = callsign;
     }
 
     /**
-     * @return the originCountry
+     * @return Country name inferred from the ICAO 24-bit address.
      */
-    public String getoriginCountry() {
+    public String getOriginCountry() {
         return originCountry;
     }
 
     /**
-     * @param originCountry the originCountry to set
+     * @param originCountry Country name inferred from the ICAO 24-bit address.
      */
-    public void setoriginCountry(String originCountry) {
+    public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
     }
 
     /**
-     * @return the posTime
+     * @return Timestamp for the last position update. Can be null.
      */
     public Date getPosTime() {
         return posTime;
     }
 
     /**
-     * @param posTime the posTime to set
+     * @param posTime Timestamp for the last position update.
      */
     public void setPosTime(Date posTime) {
         this.posTime = posTime;
     }
 
     /**
-     * @return the coordinate
+     * @return WGS-84 coordinates in decimal degrees.
      */
     public Coordinate getCoordinate() {
         return coordinate;
     }
 
     /**
-     * @param coordinate the coordinate to set
+     * @param coordinate WGS-84 coordinates in decimal degrees.
      */
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
 
     /**
-     * @return the speed
+     * @return Velocity over ground in m/s.
      */
     public Double getSpeed() {
         return speed;
     }
 
     /**
-     * @param speed the speed to set
+     * @param speed Velocity over ground in m/s.
      */
     public void setSpeed(Double speed) {
         this.speed = speed;
     }
 
     /**
-     * @return the track
+     * @return True track in decimal degrees clockwise from north (north = 0°). Can be null.
      */
-    public Double gettrack() {
+    public Double getTrack() {
         return track;
     }
 
     /**
-     * @param track the track to set
+     * @param track True track in decimal degrees clockwise from north (north = 0°).
      */
-    public void settrack(Double track) {
+    public void setTrack(Double track) {
         this.track = track;
     }
 
     /**
-     * @return the altitude
+     * @return Geometric altitude in meters. Can be null.
      */
     public Double getAltitude() {
         return altitude;
     }
 
     /**
-     * @param altitude the altitude to set
+     * @param altitude Geometric altitude in meters.
      */
     public void setAltitude(Double altitude) {
         this.altitude = altitude;

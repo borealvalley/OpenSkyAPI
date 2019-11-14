@@ -19,8 +19,7 @@ public class OOS2Lab2Starter {
         Senser senser = new Senser(server);
         new Thread(server).start();
         new Thread(senser).start();
-        String h= "🍆";
-        System.out.println(h);
+
         Messer messer = new Messer();
         senser.addObserver(messer);
         new Thread(messer).start();

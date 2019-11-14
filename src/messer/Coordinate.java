@@ -5,8 +5,8 @@ public class Coordinate {
     private double longitude;
 
     /**
-     * @param latitude
-     * @param longitude
+     * @param latitude WGS-84 latitude in decimal degrees.
+     * @param longitude WGS-84 longitude in decimal degrees.
      */
     public Coordinate(double latitude, double longitude) {
         this.latitude = latitude;
@@ -19,28 +19,28 @@ public class Coordinate {
     }
 
     /**
-     * @return the latitude
+     * @return WGS-84 latitude in decimal degrees. Can be null.
      */
     public double getLatitude() {
         return latitude;
     }
 
     /**
-     * @param latitude the latitude to set
+     * @param latitude WGS-84 latitude in decimal degrees.
      */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
     /**
-     * @return the longitude
+     * @return WGS-84 longitude in decimal degrees. Can be null.
      */
     public double getLongitude() {
         return longitude;
     }
 
     /**
-     * @param longitude the longitude to set
+     * @param longitude WGS-84 longitude in decimal degrees.
      */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
