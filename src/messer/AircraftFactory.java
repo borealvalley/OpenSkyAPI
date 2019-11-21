@@ -38,6 +38,8 @@ public class AircraftFactory {
 
         String sentenceStr = sentence.getString().replaceAll("\"", "");
 
+        BasicAircraft msg = null;
+
         if (sentenceStr.length() != 0 && sentenceStr != null) {
             String[] aircraftInfo = sentenceStr.split(",");
 
@@ -62,9 +64,10 @@ public class AircraftFactory {
             try {
                 altitude = Double.parseDouble(aircraftInfo[13]);
             } catch (NumberFormatException e) {}
+
+            msg = new BasicAircraft(icao, callsign, originCountry, timePos, new Coordinate(latitude, longitude), speed, track, altitude);
         }
 
-		BasicAircraft msg = new BasicAircraft(icao, callsign, originCountry, timePos, new Coordinate(latitude, longitude), speed, track, altitude);
         return msg;
     }
 }

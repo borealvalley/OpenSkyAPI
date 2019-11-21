@@ -14,25 +14,25 @@ public class OOS2Lab4ActiveAircraftsTest
 
 	public static void main(String[] args)
 	{
-		String urlString = "https://public-api.adsbexchange.com/VirtualRadar/AircraftList.json";
+		String urlString = "https://opensky-network.org/api/states/all";
 		PlaneDataServer server;
-		
+
 		if(haveConnection)
 			server = new PlaneDataServer(urlString, latitude, longitude, 50);
 		else
-			server = new PlaneDataServer();
+			server = new PlaneDataServer(latitude, longitude, 50);
 
 		Senser senser = new Senser(server);
 		new Thread(server).start();
 		new Thread(senser).start();
-		
+
 		Messer messer = new Messer();
 		senser.addObserver(messer);
 		new Thread(messer).start();
-		
+
 		ActiveAircrafts activeAircrafts = new ActiveAircrafts();
 		messer.addObserver(activeAircrafts);
-		
+
 		System.out.println("Sleeping for 2 seconds");
 		try {
 			Thread.sleep(2000);
@@ -40,15 +40,15 @@ public class OOS2Lab4ActiveAircraftsTest
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		ArrayList<BasicAircraft> aircrafts = activeAircrafts.values();
-		
+
 		System.out.println("Aircrafts in Hashtable " + aircrafts.size());
 		for(BasicAircraft ba : aircrafts) {
 			System.out.println(ba);
 		}
 		BasicAircraft ba1 = aircrafts.get(0);
-		
+
 		// put this into comments while testing the hashtable alone
 		//*
 		System.out.println("\nData for Aircraft  " + ba1.getIcao());

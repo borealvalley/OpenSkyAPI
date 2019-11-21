@@ -7,7 +7,6 @@ import java.util.Observer;
 
 import messer.BasicAircraft;
 
-//TODO: create hash map and complete all operations
 public class ActiveAircrafts implements Observer {
     private HashMap<String, BasicAircraft> activeAircrafts;
 
@@ -36,9 +35,13 @@ public class ActiveAircrafts implements Observer {
     }
 
     @Override
-    // TODO: store arg in hashmap using the method above
     public void update(Observable o, Object arg) {
         BasicAircraft ac = (BasicAircraft) arg;
-        store(ac.getIcao(), ac);
+        if (ac == null) {
+            // Clear hashmap on seperator (null object)
+            clear();
+        } else {
+            store(ac.getIcao(), ac);
+        }
     }
 }
